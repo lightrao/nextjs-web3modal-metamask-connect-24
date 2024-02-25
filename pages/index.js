@@ -2,10 +2,12 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
-import Web3Modal from "web3modal";
 import { useState, useEffect } from "react";
+
 import { ethers } from "ethers";
+import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+
 import { abi } from "../constants/abi";
 import { contractAddress } from "../constants/contract-address";
 
@@ -24,7 +26,7 @@ const providerOptions = {
 
 if (typeof window !== "undefined") {
   web3Modal = new Web3Modal({
-    cacheProvider: false,
+    cacheProvider: false, // won't remember the user's wallet choice for future sessions
     providerOptions, // required
   });
 }
